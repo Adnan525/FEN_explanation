@@ -14,5 +14,5 @@ def get_fen_state_explanation(fen: str) -> str:
 
 
 if __name__ == "__main__":
-    FEN = "4r1k1/1pR3p1/p2pn1qp/8/PPBP4/1QP1n3/3N2PP/5RK1"
+    FEN = "4r1k1/1pR3p1/p2pn1qp/8/PPBP4/1QP1n3/3N2PP/5RK1 w - - 1 26"
     print(get_fen_state_explanation(FEN))
