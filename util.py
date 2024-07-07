@@ -17,7 +17,7 @@ def fen_to_board(fen: str) -> str:
     :param fen: fen string, e.g. 2r3k1/p4p1p/4pp2/1b6/pP1P3P/P3PN2/2rN1PP1/R3K2R w KQ - 1 20
     :return: the board state, with empty square denoted as 1
     """
-    rows = fen.split(' ')[0].split('/')
+    rows = fen.split(" ")[0].split("/")
     board = ""
     for row in rows:
         board_row = ""
