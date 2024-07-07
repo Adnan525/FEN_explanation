@@ -3,9 +3,9 @@ Example input :
 ```python
 FEN = 4r1k1/1pR3p1/p2pn1qp/8/PPBP4/1QP1n3/3N2PP/5RK1 w - - 1 26
 ```
-Board State :
-![FEN_setup](https://github.com/Adnan525/FEN_explanation/blob/master/fen_test.png)
-Output :
+Board State :  
+![FEN_setup](https://github.com/Adnan525/FEN_explanation/blob/master/fen_test.png)  
+Output :  
 ```
 Total 22 pieces present in the board
 
