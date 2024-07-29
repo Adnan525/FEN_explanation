@@ -85,8 +85,35 @@ def get_piece_positions(board: str) -> dict[str, str]:
     return position
 
 
+def get_piece_placement(fen: str) -> str:
+
+    """
+    :param fen: pass the FULL FEN
+    :return: returns a formatted string
+    """
+    target = fen.split(" ")[0]
+
+    return f'''
+    Piece Placement:
+   - {target}
+   - This represents the board from the 8th rank to the 1st rank.
+   - Each rank is separated by a '/'.
+   - Numbers represent empty squares, and letters represent pieces (uppercase for White, lowercase for Black)\n.'''
+
+
+def get_active_colour(fen: str) -> str:
+    """
+    returns the active player
+    :param fen: Full FEN
+    :return: processed string
+    """
+
+    target = fen.split(" ")[1]
+    return f'''
+    Active Color:
+   - {target} indicates it is {"White" if target == "w" else "Black"}'s turn to move.'''
+
 # FEN = "1R6/p3k1p1/2p2b2/2Pn4/1BQPB3/P7/6PP/3q2K1 w - - 1 33"
 # board_state = fen_to_board(FEN)
 # piece_position = get_piece_positions(board_state)
 # print(piece_position)
-
