@@ -1,33 +1,7 @@
-from util import fen_to_board, get_piece_positions, count_pieces, get_piece_placement
 
-
-def get_fen_state_explanation(fen: str) -> str:
-    default_string = '''A FEN string is divided into six fields separated by spaces.
-       - The fields are:
-         1. Piece placement
-         2. Active color
-         3. Castling availability
-         4. En passant target square
-         5. Halfmove clock
-         6. Fullmove number
-    '''
-
-    # after default
-    get_piece_placement(fen)
-
-
-
-    explanation = count_pieces(fen.split(" ")[0]) + "\n"
-    board_state = fen_to_board(fen)
-    explanation += f"Board State is:\n{board_state}\n"
-    explanation += "Piece Positions are:\n"
-    piece_positions = get_piece_positions(board_state)
-    for piece, position in piece_positions.items():
-        explanation += f"{piece} at {position}\n"
-
-    return explanation
-
+from util import ChessBoard
 
 if __name__ == "__main__":
     FEN = "4r1k1/1pR3p1/p2pn1qp/8/PPBP4/1QP1n3/3N2PP/5RK1 w - - 1 26"
-    print(get_fen_state_explanation(FEN))
+    chessboard = ChessBoard(FEN)
+    print(chessboard.parse_fen_cot())
