@@ -1,3 +1,4 @@
+import random
 import re
 
 
@@ -16,6 +17,7 @@ class ChessBoard:
         self.fen = fen
         self.board = self.fen_to_board()
         self.piece_positions = self.get_piece_positions()
+        random.seed(42)
 
     def fen_to_board(self) -> str:
         """
@@ -212,6 +214,18 @@ class ChessBoard:
 
         return parse
 
+    def get_question_gt(self, analysis: str) -> (str, str, str):
+        piece_positions_section = analysis.split("Piece Positions:\n")[-1]
+        all_positions = piece_positions_section.split("\n")[:-1]
+        target_position = random.choice(all_positions)
+        piece = re.findall(r"\w+\s\w+", target_position)[0]
+        gt = re.findall(r"[a-z]\d$", target_position)[0]
+        question = f"Given a chess board state in the following FEN {self.fen} - what's the position of the {piece}?"
+        return question, piece, gt
+
+    @staticmethod
+    def generate_answer_summary(piece, gt):
+        return f"So, the position of {piece} is {gt}\n<ANSWER>: {gt}"
 
 # if __name__ == "__main__":
 #     fen = "1R6/p3k1p1/2p2b2/2Pn4/1BQPB3/P7/6PP/3q2K1 w - - 1 33"
